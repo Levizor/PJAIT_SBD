@@ -65,6 +65,7 @@ INSERT INTO AgentEntity (id, cabinet_number) VALUES
 (3, 103),
 (4, 201), 
 (5, 202);
+
 -- Insert data into Agent table
 INSERT INTO Agent (id, AgentEntity_id, SAL, COM) VALUES
 (1, 1, 50000, 3000),
@@ -105,14 +106,13 @@ INSERT INTO Supplier (id, SupplierType_id) VALUES
 
 -- Insert data into Client table
 INSERT INTO Client (Entity_id, billing_address) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
 (4, 4),
 (5, 5),
 (6, 6),
 (7, 7),
-(8, 8);
+(8, 8),
+(9, 9),
+(10, 10);
 
 -- Insert data into Contract table
 INSERT INTO Contract (id, Entity_id, document, short_description) VALUES
@@ -123,7 +123,13 @@ INSERT INTO Contract (id, Entity_id, document, short_description) VALUES
 (5, 5, 'Contract5.pdf', 'Service agreement for client E'),
 (6, 6, 'Contract6.pdf', 'Service agreement for client F'),
 (7, 7, 'Contract7.pdf', 'Service agreement for client G'),
-(8, 8, 'Contract8.pdf', 'Service agreement for client H');
+(8, 8, 'Contract8.pdf', 'Service agreement for client H'),
+(9, 9, 'Contract1.pdf', 'Service agreement for client A'),
+(10, 10, 'Contract2.pdf', 'Service agreement for suplier '),
+(11, 11, 'Contract3.pdf', 'Service agreement for suplier '),
+(12, 11, 'Contract4.pdf', 'Service agreement for suplier '),
+(13, 11, 'Contract5.pdf', 'Service agreement for suplier '),
+(14, 11, 'Contract6.pdf', 'Service agreement for suplier ');
 
 -- Insert data into EventType table
 INSERT INTO EventType (id, name) VALUES
@@ -149,14 +155,13 @@ INSERT INTO Event (id, name, description, Address_id, AgentEntity_id, EventType_
 
 -- Insert data into EventClient table
 INSERT INTO EventClient (Client_Entity_id, Event_id) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8);
+(4, 1),
+(5, 2),
+(6, 3),
+(7, 4),
+(8, 5),
+(9, 6),
+(10, 7);
 
 -- Insert data into EventContract table
 INSERT INTO EventContract (Contract_id, Event_id) VALUES
@@ -167,7 +172,13 @@ INSERT INTO EventContract (Contract_id, Event_id) VALUES
 (5, 5),
 (6, 6),
 (7, 7),
-(8, 8);
+(8, 8),
+(9, 6),
+(11, 3),
+(10, 4),
+(12, 5),
+(13, 6),
+(14, 1);
 
 -- Insert data into EventSupplier table
 INSERT INTO EventSupplier (Event_id, Supplier_id) VALUES

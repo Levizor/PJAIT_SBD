@@ -8,9 +8,29 @@ INSERT INTO Address (id, city, street, building, add_info) VALUES
 (6, 'Lublin', 'Congress Ave', '606', 'Downtown Austin'),
 (7, 'Gdynia', 'Pine St', '707', 'Near Pike Place Market'),
 (8, 'Warsaw', 'Newbury St', '808', 'In the Back Bay area'),
-(9, 'Warsaw', 'Staszica', '55', null),
+(9, 'Warsaw', 'Staszica', '55', ''),
 (10, 'Lublin', 'Newbury St', '809', 'Near the ABC river'),
 (11, 'Gdansk', 'Wrzeszcz', '809', 'Next to the Wrzeszcz station');
+
+-- Insert data into PrefferedContactType table
+INSERT INTO PrefferedContactType (id, type) VALUES
+(1, 'Phone'),
+(2, 'Email'),
+(3, 'SMS');
+
+-- Insert data into Contact table
+INSERT INTO Contact (id, phone_number, email, PrefferedContactType_id) VALUES
+(1, '5551234567', 'john.doe@example.com', 1),
+(2, '5552345678', 'jane.smith@example.com', 2),
+(3, '5553456789', 'michael.johnson@example.com', 1),
+(4, '5554567890', 'emily.davis@example.com', 3),
+(5, '5555678901', 'david.martinez@example.com', 2),
+(6, '5556789012', 'sarah.taylor@example.com', 3),
+(7, '5557890123', 'james.brown@example.com', 1),
+(8, '5558901234', 'mary.wilson@example.com', 2),
+(9, '113445789', 'tix@tix.com', 3),
+(10, '555666778', 'apple@apple.com', 1),
+(11, '789794568', 'typo@gmail.com', 2);
 
 -- Insert data into Entity table
 INSERT INTO Entity (id, Contact_id, registration_date) VALUES
@@ -42,92 +62,56 @@ INSERT INTO AgentEntity (id, cabinet_number) VALUES
 (1, 101),
 (2, 102),
 (3, 103),
-(4, 104),
-(5, 105),
-(6, 106),
-(7, 107),
-(8, 108);
+(4, 201), 
+(5, 202);
 
 -- Insert data into Agent table
 INSERT INTO Agent (id, AgentEntity_id, SAL, COM) VALUES
 (1, 1, 50000, 3000),
 (2, 2, 55000, 4000),
-(3, 3, 60000, 3500),
-(4, 4, 45000, 2500),
-(5, 5, 70000, 5000),
-(6, 6, 65000, 4500),
-(7, 7, 62000, 4200),
-(8, 8, 48000, 2800);
+(3, 3, 60000, 3500);
 
 -- Insert data into AgentTeam table
 INSERT INTO AgentTeam (id, name, creation_date) VALUES
-(1, 'Team Alpha', TO_DATE('2020-01-01', 'YYYY-MM-DD')),
-(2, 'Team Beta', TO_DATE('2021-06-01', 'YYYY-MM-DD')),
-(3, 'Team Gamma', TO_DATE('2022-03-15', 'YYYY-MM-DD')),
-(4, 'Team Delta', TO_DATE('2019-10-10', 'YYYY-MM-DD')),
-(5, 'Team Epsilon', TO_DATE('2023-07-20', 'YYYY-MM-DD')),
-(6, 'Team Zeta', TO_DATE('2021-12-11', 'YYYY-MM-DD')),
-(7, 'Team Theta', TO_DATE('2020-05-25', 'YYYY-MM-DD')),
-(8, 'Team Iota', TO_DATE('2024-01-15', 'YYYY-MM-DD'));
+(4, 'Team Alpha', '2020-01-01'),
+(5, 'Team Beta', '2021-06-01');
 
 -- Insert data into AgentAgentTeam table
 INSERT INTO AgentAgentTeam (agent_id, team_id) VALUES
-(1, 1),
-(2, 1),
-(3, 2),
-(4, 3),
-(5, 4),
-(6, 5),
-(7, 6),
-(8, 7);
+(1, 4),
+(2, 4),
+(1, 5),
+(3, 5);
 
--- Insert data into Entity table
-INSERT INTO Entity (id, Contact_id, registration_date) VALUES
-(1, 1, TO_DATE('2022-08-25', 'YYYY-MM-DD')),
-(2, 2, TO_DATE('2023-01-15', 'YYYY-MM-DD')),
-(3, 3, TO_DATE('2021-06-10', 'YYYY-MM-DD')),
-(4, 4, TO_DATE('2020-02-20', 'YYYY-MM-DD')),
-(5, 5, TO_DATE('2019-12-30', 'YYYY-MM-DD')),
-(6, 6, TO_DATE('2022-03-01', 'YYYY-MM-DD')),
-(7, 7, TO_DATE('2023-06-15', 'YYYY-MM-DD')),
-(8, 8, TO_DATE('2024-07-04', 'YYYY-MM-DD')),
-(9, 9, TO_DATE('2020-08-01', 'YYYY-MM-DD')),
-(10, 10, TO_DATE('2021-04-12', 'YYYY-MM-DD'));
-
+-- Insert data into CorporativeEntity table
 INSERT INTO CorporativeEntity (id, name, tax_id, Address_id) VALUES
 (9, 'TIX Corporation', 'abcd04564', 9),
 (10, 'Apple', 'tti4578aa', 10),
 (11, 'Typography', 'xxoa44489', 11);
 
+-- Insert data into SupplierType table
+INSERT INTO SupplierType (id, name) VALUES
+(1, 'Catering'),
+(2, 'Technology'),
+(3, 'Logistics'),
+(4, 'Entertainment'), (5, 'Security'),
+(6, 'Decorations'),
+(7, 'Printing'),
+(8, 'AV Equipment');
+
+-- Insert data into Supplier table
+INSERT INTO Supplier (id, SupplierType_id) VALUES
+(11, 7);
+
 -- Insert data into Client table
 INSERT INTO Client (Entity_id, billing_address) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
 (4, 4),
 (5, 5),
 (6, 6),
 (7, 7),
-(8, 8);
-
--- Insert data into Contact table
-INSERT INTO Contact (id, phone_number, email, PrefferedContactType_id) VALUES
-(1, '5551234567', 'john.doe@example.com', 1),
-(2, '5552345678', 'jane.smith@example.com', 2),
-(3, '5553456789', 'michael.johnson@example.com', 1),
-(4, '5554567890', 'emily.davis@example.com', 3),
-(5, '5555678901', 'david.martinez@example.com', 2),
-(6, '5556789012', 'sarah.taylor@example.com', 3),
-(7, '5557890123', 'james.brown@example.com', 1),
-(8, '5558901234', 'mary.wilson@example.com', 2),
-(9, '113445789', 'tix@tix.com', 3),
-(10, '555666778', 'apple@apple.com', 1),
-(11, '789794568', 'typo@gmail.com', 2);
--- Insert data into PrefferedContactType table
-INSERT INTO PrefferedContactType (id, type) VALUES
-(1, 'Phone'),
-(2, 'Email'),
-(3, 'SMS');
+(8, 8),
+(9, 9),
+(10, 10);
 
 -- Insert data into Contract table
 INSERT INTO Contract (id, Entity_id, document, short_description) VALUES
@@ -138,7 +122,13 @@ INSERT INTO Contract (id, Entity_id, document, short_description) VALUES
 (5, 5, 'Contract5.pdf', 'Service agreement for client E'),
 (6, 6, 'Contract6.pdf', 'Service agreement for client F'),
 (7, 7, 'Contract7.pdf', 'Service agreement for client G'),
-(8, 8, 'Contract8.pdf', 'Service agreement for client H');
+(8, 8, 'Contract8.pdf', 'Service agreement for client H'),
+(9, 9, 'Contract1.pdf', 'Service agreement for client A'),
+(10, 10, 'Contract2.pdf', 'Service agreement for suplier '),
+(11, 11, 'Contract3.pdf', 'Service agreement for suplier '),
+(12, 11, 'Contract4.pdf', 'Service agreement for suplier '),
+(13, 11, 'Contract5.pdf', 'Service agreement for suplier '),
+(14, 11, 'Contract6.pdf', 'Service agreement for suplier ');
 
 -- Insert data into EventType table
 INSERT INTO EventType (id, name) VALUES
@@ -164,14 +154,13 @@ INSERT INTO Event (id, name, description, Address_id, AgentEntity_id, EventType_
 
 -- Insert data into EventClient table
 INSERT INTO EventClient (Client_Entity_id, Event_id) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8);
+(4, 1),
+(5, 2),
+(6, 3),
+(7, 4),
+(8, 5),
+(9, 6),
+(10, 7);
 
 -- Insert data into EventContract table
 INSERT INTO EventContract (Contract_id, Event_id) VALUES
@@ -182,33 +171,20 @@ INSERT INTO EventContract (Contract_id, Event_id) VALUES
 (5, 5),
 (6, 6),
 (7, 7),
-(8, 8);
-
--- Insert data into SupplierType table
-INSERT INTO SupplierType (id, name) VALUES
-(1, 'Catering'),
-(2, 'Technology'),
-(3, 'Logistics'),
-(4, 'Entertainment'),
-(5, 'Security'),
-(6, 'Decorations'),
-(7, 'Printing'),
-(8, 'AV Equipment');
-
--- Insert data into Supplier table
-INSERT INTO Supplier (id, SupplierType_id) VALUES
-(11, 7),
+(8, 8),
+(9, 6),
+(11, 3),
+(10, 4),
+(12, 5),
+(13, 6),
+(14, 1);
 
 -- Insert data into EventSupplier table
 INSERT INTO EventSupplier (Event_id, Supplier_id) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8);
+(1, 11),
+(2, 11),
+(3, 11),
+(5, 11);
 
 -- Insert EventParts for Event 1: Tech Industry Conference
 INSERT INTO EventPart (id, what, "when", "where") VALUES
