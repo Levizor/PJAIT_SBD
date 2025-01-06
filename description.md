@@ -8,7 +8,7 @@ Database is made for an Event Agency which purpose is to organise and manage cor
 
 - Suppliers or services that we utilize to organise events, e.g. to rent some place or to order some typography, are stored containing their names, addresses, type of services they provide, contact information.
 
-- We have contracts with both suppliers and clients that we need to link to respective records in the history of events organised by our agency, which aggregates data of clients (there may be multiple customers), events information (address, timetable, description, price, etc), suppliers (also multiple) affiliated with event organisation. Events may have diferrent subparts at diferrent time and date. There are also diferrent type of events (PR, private, corporate, special). 
+- We have contracts with both suppliers and clients that we need to link to respective records in the history of events organised by our agency, which aggregates data of clients (there may be multiple customers), events information (address, timetable, description, etc), suppliers (also multiple) affiliated with event organisation. Events may have diferrent subparts at diferrent time and date. There are also diferrent type of events (PR, private, corporate, special). 
 
 - Finally we have agents and agent teams. Events may be organised by either a team or a single agent. Besides obvious person information database should contain emloyees salary, comission, count of events agent participated in organising.
 

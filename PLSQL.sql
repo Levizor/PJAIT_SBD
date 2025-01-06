@@ -1,3 +1,4 @@
+
 CREATE OR REPLACE PROCEDURE show_events_with_timetables_after_date(p_date IN DATE) IS
     CURSOR event_cursor IS
         SELECT e.id, e.name
@@ -99,37 +100,3 @@ END;
 EXEC update_agent_commissions_with_limit(3, 10, 1000);
 
 
-CREATE OR REPLACE TRIGGER enforce_max_commission
-BEFORE INSERT OR UPDATE ON Agent
-FOR EACH ROW
-DECLARE
-    v_max_commission CONSTANT NUMBER := 10000.00; 
-BEGIN
-    IF :NEW.COM > v_max_commission THEN
-        RAISE_APPLICATION_ERROR(
-            -20001,
-            'Commission cannot exceed ' || v_max_commission || 
-            '. Attempted: ' || :NEW.COM
-        );
-    END IF;
-END;
-/
-
-
-CREATE OR REPLACE TRIGGER prevent_eventpart_overlap
-BEFORE INSERT OR UPDATE ON EventPart
-FOR EACH ROW
-DECLARE
-    v_overlap_count INTEGER;
-BEGIN
-    SELECT COUNT(*)
-    INTO v_overlap_count
-    FROM EventPart
-    WHERE Event_id = :NEW.Event_id
-      AND :NEW."when" = "when" OR :NEW."when" BETWEEN "when" AND ("when" + INTERVAL '1' HOUR);
-
-    IF v_overlap_count > 0 THEN
-        RAISE_APPLICATION_ERROR(-20001, 'EventPart time overlaps with another EventPart for the same Event.');
-    END IF;
-END; 
-/
