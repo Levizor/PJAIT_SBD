@@ -114,7 +114,7 @@ CREATE TABLE EventContract (
 CREATE TABLE EventPart (
     id integer  NOT NULL,
     what nvarchar2(100)  NOT NULL,
-    when timestamp  NOT NULL,
+    "when" timestamp  NOT NULL,
     "where" nvarchar2(100)  NOT NULL,
     CONSTRAINT EventPart_pk PRIMARY KEY (id)
 ) ;

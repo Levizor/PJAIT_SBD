@@ -10,7 +10,7 @@ Database is made for an Event Agency which purpose is to organise and manage cor
 
 - We have contracts with both suppliers and clients that we need to link to respective records in the history of events organised by our agency, which aggregates data of clients (there may be multiple customers), events information (address, timetable, description, etc), suppliers (also multiple) affiliated with event organisation. Events may have diferrent subparts at diferrent time and date. There are also diferrent type of events (PR, private, corporate, special). 
 
-- Finally we have agents and agent teams. Events may be organised by either a team or a single agent. Besides obvious person information database should contain emloyees salary, comission, count of events agent participated in organising.
+- Finally we have agents and agent teams. Events may be organised by either a team or a single agent. Besides obvious person information database should contain emloyees salary, comission. 
 
 ## Entities and connections
 There is a base class "Entity" for the legal entities from which all the other (Clinet, Person, CorporativeEntity) inherit. 
